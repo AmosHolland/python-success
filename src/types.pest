@@ -1,0 +1,8 @@
+alpha = {'A'..'Z'}
+text = { (alpha)+ }
+
+num_type = {"Num"}
+var_type = { text }
+arrow_type = { "(" ~ type ~ ")" ~ " -> " ~ "(" ~ type ~ ")" }
+
+type = { num_type | var_type | arrow_type }
