@@ -1,0 +1,30 @@
+int = {("-" | "") ~ ASCII_DIGIT+}
+true = {"true"}
+false = {"false"}
+plus = {"(+)"}
+minus = {"(-)"}
+less_than = {"(<)"}
+equal = {"(=)"}
+const = {int | true | false | plus | minus | less_than | equal}
+
+
+new = {"new()"}
+var = {'a'..'z'}
+
+
+abs = {"λ"~var~"."~term}
+app = {term~term}
+if = {"if " ~term~ " then " ~term~ " else " ~term}
+let = {"let " ~var~ " = " ~term~ " in " ~term}
+assign = {term~"."~var~ " := " ~term}
+proj = {term~"."~var}
+fix = {"fix "~var~"."~term}
+
+rterm = {"("~(abs | fix | if | let | assign | proj | app)~")"}
+
+
+term = {
+  new 
+| const
+| rterm 
+| var}

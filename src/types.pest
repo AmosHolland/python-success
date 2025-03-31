@@ -1,8 +1,17 @@
 alpha = {'A'..'Z'}
 text = { (alpha)+ }
+ok_type = {"Ok"}
 
-num_type = {"Num"}
+num_type = {"Int"}
+bool_type = {"Bool"}
+comp = {"Comp(" ~ (num_type | bool_type) ~")"}
 var_type = { text }
-arrow_type = { "(" ~ type ~ ")" ~ " -> " ~ "(" ~ type ~ ")" }
+arrow_type = { "(" ~ type ~ ")" ~ " >/- " ~ "(" ~ type ~ ")" }
 
-type = { num_type | var_type | arrow_type }
+empty = {"{}"}
+lower = {'a'..'z'}
+label = {(lower)+}
+label_assign = {label ~ " : " ~ type ~ ", "}
+row = {empty | "{" ~ (label_assign)+ ~ row ~ "}"}
+
+type = { ok_type | num_type | bool_type | comp | row | arrow_type | var_type}

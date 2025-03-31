@@ -396,6 +396,7 @@ dependencies = [
 name = "python-success"
 version = "0.1.0"
 dependencies = [
+ "num-traits",
  "pest",
  "pest_derive",
  "rustpython-parser",

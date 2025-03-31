@@ -3,12 +3,11 @@ use rustpython_parser::{
     Parse,
 };
 
-pub fn _parse_python(code: &str) -> Result<Vec<Stmt>, ()> {
+pub fn parse_python(code: &str) -> Result<Vec<Stmt>, String> {
     let ast_result = ast::Suite::parse(code, "<embedded>");
 
-    if let Ok(ast) = ast_result {
-        return Ok(ast);
+    match ast_result {
+        Ok(ast) => Ok(ast),
+        Err(err) => Err(format!("{0}", err.error)),
     }
-
-    Err(())
 }
