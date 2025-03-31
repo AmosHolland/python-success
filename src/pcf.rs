@@ -36,19 +36,19 @@ impl PCFConst {
             PCFConst::Int(_) => Type::CompInt,
             PCFConst::Plus => Type::Coto(
                 Box::new(Type::Int),
-                Box::new(Type::Coto(Box::new(Type::Int), Box::new(Type::Int))),
+                Box::new(Type::Coto(Box::new(Type::Int), Box::new(Type::Ok))),
             ),
             PCFConst::Minus => Type::Coto(
                 Box::new(Type::Int),
-                Box::new(Type::Coto(Box::new(Type::Int), Box::new(Type::Int))),
+                Box::new(Type::Coto(Box::new(Type::Int), Box::new(Type::Ok))),
             ),
             PCFConst::LessThan => Type::Coto(
                 Box::new(Type::Int),
-                Box::new(Type::Coto(Box::new(Type::Int), Box::new(Type::Bool))),
+                Box::new(Type::Coto(Box::new(Type::Int), Box::new(Type::Ok))),
             ),
             PCFConst::Equal => Type::Coto(
                 Box::new(Type::Int),
-                Box::new(Type::Coto(Box::new(Type::Int), Box::new(Type::Bool))),
+                Box::new(Type::Coto(Box::new(Type::Int), Box::new(Type::Ok))),
             ),
         }
     }
